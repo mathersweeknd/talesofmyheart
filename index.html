@@ -191,8 +191,6 @@
 
 <body>
 
-<audio src="rain.mp3" autoplay loop></audio>
-
 <section>
   <div>
     <div class="book-container">
@@ -282,7 +280,14 @@
   }
 
   updatePages();
+
+  // Rolar para o final da página ao carregar
+  window.onload = function() {
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+  };
 </script>
+
+<audio src="rain.mp3" autoplay loop></audio>
 
 </body>
 </html>
