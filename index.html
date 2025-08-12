@@ -203,9 +203,9 @@
       <div class="page page6"><p>E se um dia o livro se fechar, sei que, entre todas as histórias já contadas no mundo, a minha sempre será a minha favorita, porque foi escrita com você.</p></div>
       <div class="page page7"><p>Se um dia o universo tentar apagar esta história, que ao menos gravem em pedra o que grito agora: meu amor por você é infinito, mesmo que minha vida seja finita.</p></div>
       <div class="page page8"><p>E se o mundo desmoronar, se as páginas desta história forem arrancadas, ainda assim gritarei o seu nome. Porque, mesmo que o livro acabe, a minha alma continuará escrevendo você.</p></div>
-      <div class="page page9"><p>Porque, Leticia, mesmo que o tempo destrua tudo, mesmo que eu perca a voz, mesmo que minha carne se desfaça… a essência do que sou permanecerá intacta, e nela, para sempre, haverá apenas você.</p></div>
-      <div class="page page10"><p>Leticia, esta não é apenas uma história… é o mapa de tudo o que sou. E nele, só existe um destino: você. E se este for o último capítulo, que ele seja escrito com o sangue do meu coração — porque nunca houve, e nunca haverá, outra história senão você.</p></div>
-      <div class="page page11"><p>Amo você!</p></div>
+      <div class="page page9"><p>Porque, mesmo que o tempo destrua tudo, mesmo que eu perca a voz, mesmo que minha carne se desfaça… a essência do que sou permanecerá intacta, e nela, para sempre, haverá apenas você.</p></div>
+      <div class="page page10"><p>Esta não é apenas uma história… é o mapa de tudo o que sou. E nele, só existe um destino: você. E se este for o último capítulo, que ele seja escrito com o sangue do meu coração — porque nunca houve, e nunca haverá, outra história senão você.</p></div>
+      <div class="page page11"><p>Leticia, Amo você!</p></div>
       <div class="page page12"></div>
       <div class="page page13"></div>
       <div class="page page14"></div>
@@ -213,7 +213,7 @@
 
       <!-- Botões -->
       <div class="button-container">
-        <button id="openBtn" onclick="nextPage()" style="margin:auto; display:block;">Abrir</button>
+        <button id="openBtn" style="margin:auto; display:block;">Abrir</button>
         <button id="prevBtn" onclick="previousPage()" style="display:none;">Voltar</button>
         <button id="nextBtn" onclick="nextPage()" style="display:none;">Próxima</button>
         <button id="startBtn" onclick="goToStart()" style="display:none;">Início</button>
@@ -221,6 +221,9 @@
     </div>
   </div>
 </section>
+
+<audio id="bgAudio" src="rain.mp3" loop></audio>
+
 <script>
   let currentPage = 0;
   const pages = document.querySelectorAll('.page');
@@ -228,6 +231,7 @@
   const prevBtn = document.getElementById('prevBtn');
   const nextBtn = document.getElementById('nextBtn');
   const startBtn = document.getElementById('startBtn');
+  const bgAudio = document.getElementById('bgAudio'); // Referência ao áudio
 
   function updatePages() {
     pages.forEach((page, index) => {
@@ -281,13 +285,18 @@
 
   updatePages();
 
-  // Rolar para o final da página ao carregar
   window.onload = function() {
     window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
   };
-</script>
 
-<audio src="rain.mp3" autoplay loop></audio>
+  // Tocar música e avançar página ao clicar em "Abrir"
+  openBtn.addEventListener('click', function() {
+    if (bgAudio.paused) {
+      bgAudio.play();
+    }
+    nextPage();
+  });
+</script>
 
 </body>
 </html>
