@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Heart</title>
+  <link rel="icon" href="fireheart.png" type="image/png">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <style>
+    body {
+      background-image: url('candle.gif');
+      justify-content: center;
+      align-items: center;
+      background-color: black;
+      background-position: bottom right 10%;
+      background-repeat: no-repeat;
+      background-size: 90%;
+      min-height: 88vh;
+    }
+
+    #navbarNav {
+      font-weight: bold;
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+      z-index: 10;
+    }
+
+    #searchInput {
+      background-color: #c1c6cc;
+    }
+
+    .book-container {
+      border-radius: 5px;
+      width: 350px;
+      height: 500px;
+      display: flex;
+      position: relative;
+      perspective: 1200px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      margin: auto;
+      margin-top: 110px;
+    }
+
+    .page {
+      border-radius: 5px;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5rem;
+      color: #333;
+      backface-visibility: hidden;
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+      z-index: 1;
+      background-size: cover;
+      background-position: center;
+      transition: transform 1s ease-in-out;
+    }
+
+    /* Páginas do livro */
+    .page1 { 
+      background-image: url('tales.png');
+      z-index: 5;
+    }
+
+    .page2 { background-image: url('fundo.png'); z-index: 10; 
+             align-items: center;
+             text-align: justify;
+             padding: 5vh;
+             color: rgb(77, 39, 15);
+             font-size: 20px;
+             font-weight: bold;
+             text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+            }
+    .page3 { background-image: url('fundo.png'); z-index: 9;
+             align-items: center;
+             text-align: justify;
+             padding: 5vh;
+             color: rgb(77, 39, 15);
+             font-size: 20px;
+             font-weight: bold;
+             text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5); 
+            }
+    .page4 { background-image: url('fundo.png'); z-index: 10; 
+             align-items: center;
+             text-align: justify;
+             padding: 5vh;
+             color: rgb(77, 39, 15);
+             font-size: 20px;
+             font-weight: bold;
+             text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5); 
+            }
+    .page5 { background-image: url('fundo.png'); z-index: 7;
+             align-items: center;
+             text-align: justify;
+             padding: 5vh;
+             color: rgb(77, 39, 15);
+             font-size: 20px;
+             font-weight: bold;
+             text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5); 
+            }            
+    .page6 { background-image: url('fundo.png'); z-index: 7; 
+             align-items: center;
+             text-align: justify;
+             padding: 5vh;
+             color: rgb(77, 39, 15);
+             font-size: 20px;
+             font-weight: bold;
+             text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+            }
+    .page7 { background-image: url('fundo.png'); z-index: 7; 
+             align-items: center;
+             text-align: justify;
+             padding: 5vh;
+             color: rgb(77, 39, 15);
+             font-size: 20px;
+             font-weight: bold;
+             text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+             }
+    .page8 { background-image: url('fundo.png'); z-index: 7; 
+             align-items: center;
+             text-align: justify;
+             padding: 5vh;
+             color: rgb(77, 39, 15);
+             font-size: 20px;
+             font-weight: bold;
+             text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+             }
+    .page9 { background-image: url('fundo.png'); z-index: 7; 
+             align-items: center;
+             text-align: justify;
+             padding: 5vh;
+             color: rgb(77, 39, 15);
+             font-size: 20px;
+             font-weight: bold;
+             text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+             }
+    .page10 { background-image: url('fundo.png'); z-index: 7; 
+             align-items: center;
+             text-align: justify;
+             padding: 5vh;
+             color: rgb(77, 39, 15);
+             font-size: 20px;
+             font-weight: bold;
+             text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+             }
+    .page11 { background-image: url('fundo.png'); z-index: 7; 
+             align-items: center;
+             text-align: justify;
+             padding: 5vh;
+             color: rgb(77, 39, 15);
+             font-size: 20px;
+             font-weight: bold;
+             text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+             }
+    .page12 { background-image: url('us.png'); z-index: 7; }
+    .page13 { background-image: url('tales2.png'); z-index: 7; }
+    .page14 { background-image: url('fundo.png'); z-index: 7; }
+    .page15 { background-image: url('fundo.png'); z-index: 7; }
+
+    .button-container {
+      position: absolute;
+      bottom: -60px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    button {
+      font-weight: bold;
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #333;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #555;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<audio src="rain.mp3" autoplay loop></audio>
+
+<section>
+  <div>
+    <div class="book-container">
+      <!-- Páginas do livro -->
+      <div class="page page1"></div> <!-- Capa -->
+      <div class="page page2"><p>Desde a primeira vez que a vi, soube que minha vida havia ganhado uma nova história para contar. Não uma simples história, dessas que o tempo apaga, mas uma crônica que meu coração escreveria a cada batida.</p></div> <!-- Página 1 -->
+      <div class="page page3"><p>Seus olhos tinham a calma do entardecer e a intensidade de uma tempestade. Eu me perdi neles tantas vezes que aprendi a navegar por mares que nunca sonhei conhecer. Cada palavra sua era uma carta enviada diretamente para mim, como se houvesse um código secreto que apenas nós entendíamos.</p></div> <!-- Página 2 -->
+      <div class="page page4"><p>Nos dias bons, seu sorriso era o capítulo mais iluminado do meu livro. Nos dias ruins, seu abraço era o parágrafo que me salvava de cair no abismo. E, mesmo quando o silêncio se fazia, ele nunca foi vazio, sempre carregava a promessa de que estávamos juntos na mesma página.</p></div> <!-- Página 3 -->
+      <div class="page page5"><p>Esses contos do meu coração não são sobre um final feliz, mas sobre cada momento em que meu coração escolheu você, mesmo antes de entender o que era amar. É sobre como, de todas as histórias que a vida poderia escrever, a minha sempre vai começar e terminar com o seu nome.</p></div>
+      <div class="page page6"><p>E se um dia o livro se fechar, sei que, entre todas as histórias já contadas no mundo, a minha sempre será a minha favorita, porque foi escrita com você.</p></div>
+      <div class="page page7"><p>Se um dia o universo tentar apagar esta história, que ao menos gravem em pedra o que grito agora: meu amor por você é infinito, mesmo que minha vida seja finita.</p></div>
+      <div class="page page8"><p>E se o mundo desmoronar, se as páginas desta história forem arrancadas, ainda assim gritarei o seu nome. Porque, mesmo que o livro acabe, a minha alma continuará escrevendo você.</p></div>
+      <div class="page page9"><p>Porque, Leticia, mesmo que o tempo destrua tudo, mesmo que eu perca a voz, mesmo que minha carne se desfaça… a essência do que sou permanecerá intacta, e nela, para sempre, haverá apenas você.</p></div>
+      <div class="page page10"><p>Leticia, esta não é apenas uma história… é o mapa de tudo o que sou. E nele, só existe um destino: você. E se este for o último capítulo, que ele seja escrito com o sangue do meu coração — porque nunca houve, e nunca haverá, outra história senão você.</p></div>
+      <div class="page page11"><p>Amo você!</p></div>
+      <div class="page page12"></div>
+      <div class="page page13"></div>
+      <div class="page page14"></div>
+      <div class="page page15"></div>
+
+      <!-- Botões -->
+      <div class="button-container">
+        <button id="openBtn" onclick="nextPage()" style="margin:auto; display:block;">Abrir</button>
+        <button id="prevBtn" onclick="previousPage()" style="display:none;">Voltar</button>
+        <button id="nextBtn" onclick="nextPage()" style="display:none;">Próxima</button>
+        <button id="startBtn" onclick="goToStart()" style="display:none;">Início</button>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  let currentPage = 0;
+  const pages = document.querySelectorAll('.page');
+  const openBtn = document.getElementById('openBtn');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const startBtn = document.getElementById('startBtn');
+
+  function updatePages() {
+    pages.forEach((page, index) => {
+      const rotation = -180 * (currentPage - index);
+      page.style.transform = `rotateY(${rotation}deg)`;
+
+      if (rotation === 0) {
+        page.style.zIndex = 5;
+      } else {
+        page.style.zIndex = 1; 
+      }
+    });
+
+    // Botões
+    if (currentPage === 0) {
+      openBtn.style.display = "block";
+      prevBtn.style.display = "none";
+      nextBtn.style.display = "none";
+      startBtn.style.display = "none";
+    } else if (currentPage === 12) {
+      openBtn.style.display = "none";
+      prevBtn.style.display = "inline-block";
+      nextBtn.style.display = "none";
+      startBtn.style.display = "inline-block";
+    } else {
+      openBtn.style.display = "none";
+      prevBtn.style.display = "inline-block";
+      nextBtn.style.display = "inline-block";
+      startBtn.style.display = "none";
+    }
+  }
+
+  function nextPage() {
+    if (currentPage < pages.length - 1 && currentPage < 12) {
+      currentPage++;
+    }
+    updatePages();
+  }
+
+  function previousPage() {
+    if (currentPage > 0) {
+      currentPage--;
+    }
+    updatePages();
+  }
+
+  function goToStart() {
+    currentPage = 0;
+    updatePages();
+  }
+
+  updatePages();
+</script>
+
+</body>
+</html>
